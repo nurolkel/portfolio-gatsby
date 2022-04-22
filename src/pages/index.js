@@ -1,31 +1,47 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
+import styled from "@emotion/styled"
+import { breakpoints } from "../utils/breakpoints"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import { GridWrapper, GridItem, ImgBackground } from "../components/Container"
+import { css } from "@emotion/react"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const IndexPage = ( { data }) => {
+  const image = data.file.childImageSharp
+  const imgSrc = getImage(image);
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+  return (
+    <GridWrapper>
+      <GridItem>
+        <h2>Hi, I'm Kelvin</h2>
+        <p>Frontend Web Developer</p>
+        <p>I enjoy building applications that make people lives easier. I like writing code that is easy to understand, performant, and maintanble.</p>
+        <ImgBackground>
+          <GatsbyImage image={imgSrc} alt="Kelvin Nunez" css={css`
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+          `}/>
+        </ImgBackground>
+      </GridItem>
+    </GridWrapper>
+  )
+}
+
+export const data = graphql`
+  {
+    file(name: {eq: "myPicture"}) {
+      childImageSharp {
+        gatsbyImageData(
+          placeholder: TRACED_SVG 
+          layout: CONSTRAINED
+          quality: 100
+          breakpoints: [360,768,1024,1280]
+        )
+      }
+    }
+  }
+`
+
 
 export default IndexPage
