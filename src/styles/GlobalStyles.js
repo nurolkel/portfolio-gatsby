@@ -55,6 +55,8 @@ const GlobalStyle = () => (
             *::before,
             *::after {
                 box-sizing: border-box;
+                margin:0;
+                padding:0;
             }
 
             body,
@@ -81,8 +83,9 @@ const GlobalStyle = () => (
             }
 
             #___gatsby,
-            #gatsby-focus-wrapper {
-                    min-height: 100vh;
+            #gatsby-focus-wrapper,
+            body {
+                min-height: 100vh;
             }
 
             html {
@@ -94,8 +97,9 @@ const GlobalStyle = () => (
                 margin: 0;
                 padding:0;
                 line-height: 1.5;
-                background-color: hsl( var(--clr-black)/ .95);
+                background-color: hsl( var(--clr-black));
                 min-height: 100vh;
+                box-sizing: border-box;
             }
 
             img,
@@ -188,7 +192,7 @@ const GlobalStyle = () => (
 
 
             .bg-black--filter {
-                background-color: hsl( var(--clr-black) /.50);
+                background-color: hsl( var(--clr-black) /.75);
                 backdrop-filter: blur(2rem);
             }
 
@@ -199,6 +203,10 @@ const GlobalStyle = () => (
             .bg-white--filter {
                 background-color: hsl( var(--clr-white) /.75 );
                 backdrop-filter: blur(3rem);
+            }
+
+            .bg-dark-blue {
+                background-color: hsl( var(--clr-dark-blue));
             }
 
             .text-light-grey {
@@ -221,6 +229,10 @@ const GlobalStyle = () => (
                 color: hsl( var(--clr-white));
             }
 
+            .text-black {
+                color: hsl( var(--clr-black));
+            }
+
             .text-center {
                 text-align: center;
             }
@@ -237,6 +249,10 @@ const GlobalStyle = () => (
 
             .uppercase { 
                 text-transform: uppercase; 
+            }
+
+            .text-bold {
+                font-weight: bold;
             }
 
             .fs-900 { 
@@ -337,21 +353,21 @@ const GlobalStyle = () => (
             
 
             .img {
-                position: relative;
-                display: inline-grid;
-                z-index: 1;
-                place-items: center;
-                aspect-ratio: 1;
                 width: 100%;
-                height: auto;
                 
-               
-
+                
                 @media ${breakpoints.desktop} {
-                    width: 80%;
+                    width: 100%;
                     border-radius: 15px;
-                    height: auto;
                 }
+            }
+
+            .a-link {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 0.5rem;
             }
 
             /* components */
@@ -444,7 +460,7 @@ const GlobalStyle = () => (
                         color:hsl( var(--clr-v-blue));
                     }
             }
-       
+            
             .contact-link {
                 display: flex;
                 justify-content: center;
@@ -486,6 +502,21 @@ const GlobalStyle = () => (
                 width: 100%;
                 height: 75px;
             }
+
+            .link-btn {
+                padding: 1.5rem 2rem;
+                background-color: hsl( var(--clr-purple));
+                border-radius: 15px;
+                margin: 0 auto;
+                transition: background-color 500ms ease-out;
+                
+            }
+
+            .link-btn:hover,
+            .link-btn:focus {
+                    background-color: hsl( var(--clr-purple) / .50);
+                }
+
             .grid-container {
                 --gap: 1rem;
                 display: grid;
@@ -515,8 +546,7 @@ const GlobalStyle = () => (
                 position: relative;
                 z-index: 20;
                 box-shadow: 4px 4px 4px hsl(var(--clr-black)/ .15);
-                background-color: hsl( var(--clr-black) / .25);
-                backdrop-filter: blur(5rem);
+               
                 display: grid;
                 width: 80%;
                 justify-content: center;

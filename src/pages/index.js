@@ -1,10 +1,11 @@
 import React from "react"
-import styled from "@emotion/styled"
-import { breakpoints } from "../utils/breakpoints"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
-import { graphql } from "gatsby"
+import { graphql, Link  } from "gatsby"
+// Import Components
 import { GridWrapper, ImgGallery, IconGrid } from "../components/Container"
-import { css } from "@emotion/react"
+import PortfolioComponent from "../components/Portfolio"
+import ReachMe from "../components/ReachMe"
+// Import Icons
 import { BsGithub , BsFacebook } from 'react-icons/bs';
 import { FaGitAlt, FaHtml5, FaCss3Alt, FaWordpress, FaWix, FaReact, FaNodeJs } from 'react-icons/fa';
 import { SiJavascript, SiTailwindcss, SiStyledcomponents, SiGatsby, SiNextdotjs, SiNetlify, SiVercel, SiFirebase, SiContentful, SiWebpack, SiMongodb, SiPostgresql, SiGraphql } from 'react-icons/si';
@@ -13,13 +14,12 @@ import { BsBootstrapFill } from 'react-icons/bs'
 
 
 
+
+
 const IndexPage = ( { data }) => {
   
     const image = data.myPicture.childImageSharp
     const imgSrc = getImage(image);
-
-   
-   
     const sanityData = [...data.allSanityHobbies.nodes];
     
     return (
@@ -28,6 +28,7 @@ const IndexPage = ( { data }) => {
           <div className="grid-item flow">
             <h1 className="text-center letter-spacing-3 text-blue fs-700 uppercase">Hi, I'm Kelvin<span className="d-block text-white fs-500 margin-top-bottom">Frontend Web Developer</span></h1>
             <p className="fs-400 letter-spacing-3 text-white padding-inline">I enjoy building applications that make people lives easier. I like writing code that is easy to understand, performant, and maintainable.</p>
+            <ReachMe />
             <div className="icon-container flex flex--gap padding-inline">
               <a href="https://github.com/nurolkel" target="_blank"><span className="sr-only">Github</span><BsGithub className="fs-400 icons text-dark-blue" /></a>
               <a href="https://www.facebook.com/kelvin.nunez.16" target="_blank"><span className="sr-only">Facebook</span><BsFacebook className="fs-400 icons text-dark-blue" /></a>
@@ -146,18 +147,35 @@ const IndexPage = ( { data }) => {
               </div>
             </IconGrid>
             <div className="grid-container padding-inline padding-top-bottom">
-              <div className="card bg-white--filter">
+              <div className="card bg-dark-blue">
                 <p className="letter-spacing-2 uppercase text-light-grey padding-inline--small padding-top-bottom fs-400">I build scalable application and use an approach where the best tool for the job gets used.</p>
               </div>
-              <div className="card">
+              <div className="card bg-dark-blue">
                 <p className="letter-spacing-2 uppercase text-light-grey padding-inline--small padding-top-bottom fs-400">I manage data by using a Headless CMS and API and query data with Graphql or REST</p>
               </div>
-              <div className="card">
+              <div className="card bg-dark-blue">
                 <p className="letter-spacing-2 uppercase text-light-grey padding-inline--small padding-top-bottom fs-400">Design responsive mobile-first designs using SCSS and CSS Frameworks</p>
               </div>
-              <div className="card">
+              <div className="card bg-dark-blue">
                 <p className="letter-spacing-2 uppercase text-light-grey padding-inline--small padding-top-bottom fs-400">Create pages that follows W3C semantics and accessible for everyone</p>
               </div>
+            </div>
+        </article>
+
+        <article className="flow margin-top-bottom padding-top-bottom--big">
+          <header className="flow flow--space-large padding-top-bottom">
+              <h2 className="text-blue fs-600 letter-spacing-3 padding-top-bottom padding-inline uppercase text-center">Projects</h2>
+          </header>
+          
+            {data.allSanityPortfolio.nodes.map((element, index) => {
+              const { name, url, github, text, description, skill, slug} = element;
+              const image = getImage(element.image.asset.gatsbyImageData);
+              return (index < 3 &&
+                <PortfolioComponent title={name} url={url} github={github} description={description} skill={skill} text={text} image={image} slug={slug.current} />
+              )
+            })}
+            <div className="flex">
+              <Link to="/projects" aria-label="projects link" className="link-btn uppercase text-white fs-400 padding-inline">More Projects</Link>
             </div>
         </article>
       </>
@@ -187,6 +205,30 @@ export const data = graphql`
         }
       }
     }
+  }
+  allSanityPortfolio {
+      nodes {
+          name
+          url
+          github
+          description
+          text
+          skill {
+            name
+          }
+          slug {
+            current
+          }
+          image {
+            asset {
+              gatsbyImageData(
+                placeholder: BLURRED
+                fit: FILL
+                layout: CONSTRAINED
+              )
+            }
+          }
+      }
   }
     
   }

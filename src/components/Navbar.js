@@ -80,7 +80,7 @@ const Navbar = () =>  {
                     <Link to='/'>
                         <h2 className="text-blue uppercase fs-600 letter-spacing-2">Kelvin Nunez</h2>
                     </Link>
-                    <div className="toggle" onClick={toggleNavBar}>
+                    <div className="toggle" role="Nav Menu" onClick={toggleNavBar}>
                         <Hamburger open={open} />
                     </div>
                 </div>
@@ -88,7 +88,6 @@ const Navbar = () =>  {
                     <Link 
                         to="/" 
                         className="nav-link text-white fs-400 uppercase letter-spacing-2" 
-                        activeClassName="text-cyan"
                         onClick={toggleNavBar}
                     >
                         Home
@@ -96,7 +95,6 @@ const Navbar = () =>  {
                     <Link 
                         to="/projects" 
                         className="nav-link text-white fs-400 uppercase letter-spacing-2" 
-                        activeClassName="active-link text-cyan"
                         onClick={toggleNavBar}    
                     >
                         Projects
@@ -104,12 +102,10 @@ const Navbar = () =>  {
                     <Link 
                         to="/contact" 
                         className="nav-link text-white fs-400 uppercase letter-spacing-2" 
-                        activeClassName="active-link text-cyan"
                         onClick={toggleNavBar}    
                     >
                         Contact
-                    </Link>
-                    
+                    </Link>  
                 </div>
             </div>    
         </nav>

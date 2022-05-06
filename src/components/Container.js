@@ -87,14 +87,123 @@ export const ImgGallery = styled("div")`
     }
 `
 
-export const ImgBackground = styled("div")`
-    border-radius: 50%;
-    height: 300px;
-    width: 300px;
-    background-color: var(--gunmetalGrey);
+export const ProjectsGrid = styled('div')`
+    display: grid;
+    --gap: 2em;
+    gap: var(--gap,2rem);
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    a {
+        position: relative;
+        z-index: 10;
+        pointer: cursor;
+        width: 100%;
+        
+
+        .projects-img {
+            width: 100%;
+            object-fit: fill;
+        }
+
+        .projects-grid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: hsl(var(--clr-black) / .45);
+            width: 100%;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media ${breakpoints.desktop} {
+        grid-template-columns: repeat(2, 1fr);
+        
+        a {
+            
+
+            .projects-img {
+                height: 500px;
+                width: 100%;
+                object-fit: fill;
+                object-position: top;
+            }
+        }
+    }
+`
+
+export const ContactContainer = styled('main')`
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2rem;
+        align-items: center;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        label {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: minmax(0,5rem) minmax(0,50rem);
+            align-items: center;
+            gap: 1rem;
+
+            input {
+                padding: 0.5rem;
+                border: 1px solid hsl(var(--clr-purple));
+
+                &:focus,
+                &:hover {
+                    outline: 2px solid hsl( var(--clr-v-blue) /.50);
+                }
+            }
+        }
+
+        button {
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            background-color: hsl( var(--clr-purple));
+            border: 1px solid hsl( var(--clr-purple) /.50);
+            color: hsl( var(--clr-white));
+            transition: background-color 500ms ease-out;
+            pointer: cursor;
+
+            &:hover,
+            &:focus {
+                background-color: hsl( var(--clr-purple) / .50);
+            }
+        }
+    }
+
+    @media ${breakpoints.desktop} {
+        grid-template-columns: minmax(0,35rem) minmax(0,30rem);
+        align-items: center;
+        justify-content: center;
+
+
+        form {
+            gap: 1rem;
+            justify-content: space-evenly;
+        }
+    }
+`
+
+
+export const PageContainer = styled('main')`
+    height: 100vh;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: center;
-    margin: 0 auto;
     align-items: center;
 `
 
