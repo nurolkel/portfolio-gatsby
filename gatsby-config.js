@@ -8,6 +8,9 @@ module.exports = {
     description: `This is my portfolio website where you can see my github and projects I've worked on`,
     author: `Kelvin Nunez`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    keywords: `Portfolio Project, Gatsby.js Portfolio, Frontend Developer, Javascript Developer, Node.js Developer`,
+    image: `src/images/myPicture.jpg`,
+    github: `https://github.com/nurolkel`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
