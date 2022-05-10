@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import MessageComponent from "../components/Message";
 import { ContactContainer } from "../components/Container";
 import ReachMe from "../components/ReachMe";
-import Seo from '../components/Seo'
+import SEO from '../components/SEO'
 
 const ContactPage = () => {
     
@@ -36,7 +36,7 @@ const ContactPage = () => {
 
     return (
         <>
-        <Seo title="Contact Me" />
+        <SEO title="Contact Me" />
         <ContactContainer>
             <div>
                 <h1 className="text-blue text-center padding-top-bottom">Contact Page</h1>
