@@ -189,7 +189,7 @@ export const data = graphql`
     myPicture: file(name: {eq: "myPicture"}) {
       childImageSharp {
         gatsbyImageData(
-          placeholder: TRACED_SVG 
+          placeholder: BLURRED
           layout: CONSTRAINED
           quality: 100
           breakpoints: [360,768,1024,1280]
