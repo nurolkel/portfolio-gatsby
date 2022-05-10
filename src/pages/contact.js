@@ -40,12 +40,12 @@ const ContactPage = () => {
         <ContactContainer>
             <div>
                 <h1 className="text-blue text-center padding-top-bottom">Contact Page</h1>
-                <div className="padding-inline flow">
-                    <p className="text-light-grey letter-spacing-2 uppercase">Thank You for coming to my page. I hope you liked what you saw. Please enter your information so we can talk one on one for any opportunity you may have!</p>
+                <div className="padding-inline--small flow">
+                    <p className="text-light-grey letter-spacing-2">Thank You for coming to my page. I hope you liked what you saw. Please enter your information so we can talk one on one for any opportunity you may have!</p>
                     <ReachMe />
                 </div>
             </div>
-            <form className="" role="form" onSubmit={submitForm}>
+            <form onSubmit={submitForm}>
                 <label htmlFor="name" className="text-light-grey d-block">Name
                 <input 
                     type="text" 

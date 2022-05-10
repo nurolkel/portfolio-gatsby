@@ -15,7 +15,7 @@ const ProjectPage = ({ data }) => {
                 {data.allSanityPortfolio.nodes.map(element => {
                     const imageSrc = getImage(element.image.asset.gatsbyImageData);
                     return (
-                        <Link to={`/${element.slug.current}`}>
+                        <Link to={`/${element.slug.current}`} key={element.name}>
                             <GatsbyImage image={imageSrc} alt={element.name} className="projects-img" />
                             <div className="projects-grid">
                                 <span className="text-blue fs-600 text-bold uppercase">{element.name}</span>

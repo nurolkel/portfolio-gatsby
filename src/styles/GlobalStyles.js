@@ -28,7 +28,7 @@ const GlobalStyle = () => (
                 --fs-300: 1rem;
                 --fs-200: 0.875rem;
 
-                --max-width: 1200px;
+                --max-width: 900px;
                 --fixed-width: 600px;
                 
                 @media ${breakpoints.tablet} {
@@ -99,7 +99,6 @@ const GlobalStyle = () => (
                 line-height: 1.5;
                 background-color: hsl( var(--clr-black));
                 min-height: 100vh;
-                box-sizing: border-box;
             }
 
             img,
@@ -298,8 +297,10 @@ const GlobalStyle = () => (
                 }
             }
 
-            .padding-main > *{
-                padding: 1rem 1.5rem;
+            .padding-main {
+                --padding: 1rem;
+                padding-top: var(--padding);
+                padding-bottom: var(--padding);
             }
 
             .padding-inline {
@@ -372,18 +373,17 @@ const GlobalStyle = () => (
 
             /* components */
             .navbar {
+                position: sticky;
+                top:0;
                 align-items: center;
                 justify-content: center;
-                position: sticky;
                 z-index: 1000;
-                top:0;
-                padding: 1rem 0;
-                
-               
+                height: 100px;
             }
 
             .nav-center {
-                width: 90vw;
+                width: 100%;
+                padding-inline: 1rem;
                 max-width: var(--max-width);
             }
 
@@ -412,8 +412,7 @@ const GlobalStyle = () => (
                 transition: right 500ms ease-out;
                 
                 @media ${breakpoints.desktop} {
-                    position: static;
-                    
+                    position: static; 
                 }
             }
 
@@ -426,7 +425,36 @@ const GlobalStyle = () => (
                 height: 100vh;
 
                 @media ${breakpoints.desktop} {
-                    background-color: transparent;
+                    background-color: none;
+                }
+            }
+
+            @media ${breakpoints.desktop} {
+                
+                .nav-center {
+                    display: flex;
+                    align-items: center;
+                }
+                .nav-header {
+                    padding: 0;
+                    margin-right: 2rem;
+                    height: auto;
+                }
+
+                .nav-btn {
+                    display: none;
+                }
+                .nav-links {
+                    height: auto !important;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                }
+                .nav-link {
+                    padding: 0;
+                    border-top: none;
+                    margin-right: 1rem;
+                    
                 }
             }
 
@@ -496,6 +524,12 @@ const GlobalStyle = () => (
                 height: 50px;
                 width: 50px;
                 cursor: pointer;
+                transition: transform 500ms ease-out;
+            }
+
+            .icons:hover,
+            .icons:focus {
+                transform: scale(125%);
             }
 
             .icons-1 {
@@ -509,7 +543,6 @@ const GlobalStyle = () => (
                 border-radius: 15px;
                 margin: 0 auto;
                 transition: background-color 500ms ease-out;
-                
             }
 
             .link-btn:hover,
@@ -556,40 +589,7 @@ const GlobalStyle = () => (
                 gap: var(--gap, 1rem);
             }
 
-            @media ${breakpoints.desktop} {
-                
-                .nav-center {
-                    display: flex;
-                    align-items: center;
-                }
-                .nav-header {
-                    padding: 0;
-                    margin-right: 2rem;
-                    height: auto;
-                }
-
-                .nav-btn {
-                    display: none;
-                }
-                .nav-links {
-                    height: auto !important;
-                    flex-direction: row;
-                    align-items: center;
-                    width: 100%;
-                }
-                .nav-link {
-                    padding: 0;
-                    border-top: none;
-                    margin-right: 1rem;
-                    
-                }
-                .contact-link {
-                    width: 100%;
-                    justify-content: flex-end;
-                    align-items: center;
-                    margin-right: 0;
-                }
-            }
+           
 
         `}
     />

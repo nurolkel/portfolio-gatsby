@@ -29,14 +29,7 @@ module.exports = {
         cssPropOptimization: true,
       }
     },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: 'https://www.example.com',
-        sitemap: 'https://www.example.com/sitemap/sitemap-index.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
-    },
+    'gatsby-plugin-robots-txt',
     {
       resolve: `gatsby-source-sanity`,
       options: {
@@ -49,7 +42,7 @@ module.exports = {
         // If the Sanity GraphQL API was deployed using `--tag <name>`,
         // use `graphqlTag` to specify the tag name. Defaults to `default`.
       },
-    }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

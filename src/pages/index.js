@@ -19,7 +19,7 @@ import { BsBootstrapFill } from 'react-icons/bs'
 
 const IndexPage = ( { data }) => {
   
-    const image = data.myPicture.childImageSharp
+    const image = data.sanityMe.image.asset.gatsbyImageData
     const imgSrc = getImage(image);
     const sanityData = [...data.allSanityHobbies.nodes];
     
@@ -27,23 +27,23 @@ const IndexPage = ( { data }) => {
       <>
         <Seo title="Home" />
         <GridWrapper className="padding-main flow flow--space-medium">
-          <div className="grid-item flow">
+          <div className="grid-item flow padding-inline--small">
             <h1 className="text-center letter-spacing-3 text-blue fs-700 uppercase">Hi, I'm Kelvin<span className="d-block text-white fs-500 margin-top-bottom">Frontend Web Developer</span></h1>
-            <p className="fs-400 letter-spacing-3 text-white padding-inline">I enjoy building applications that make people lives easier. I like writing code that is easy to understand, performant, and maintainable.</p>
+            <p className="fs-400 letter-spacing-3 text-light-grey ">I enjoy building applications that make people lives easier. I like writing code that is easy to understand, performant, and maintainable.</p>
             <ReachMe />
-            <div className="icon-container flex flex--gap padding-inline">
-              <a href="https://github.com/nurolkel" target="_blank"><span className="sr-only">Github</span><BsGithub className="fs-400 icons text-dark-blue" /></a>
-              <a href="https://www.facebook.com/kelvin.nunez.16" target="_blank"><span className="sr-only">Facebook</span><BsFacebook className="fs-400 icons text-dark-blue" /></a>
+            <div className="icon-container flex flex--gap ">
+              <a href="https://github.com/nurolkel" target="_blank" rel="noopener"><span className="sr-only">Github Link</span><BsGithub className="fs-400 icons text-dark-blue" /></a>
+              <a href="https://www.facebook.com/kelvin.nunez.16" target="_blank" rel="noopener"><span className="sr-only">Facebook Link</span><BsFacebook className="fs-400 icons text-dark-blue" /></a>
             </div>
           </div>
-          <GatsbyImage image={imgSrc} alt="Kelvin Nunez" className="img" />
+          <GatsbyImage image={imgSrc} alt="Kelvin Nunez" />
         </GridWrapper>
 
         <article className="bg-black--filter flow flow--space-large padding-top-bottom--big  margin-top-bottom">
           <header className="flow flow--space-large padding-top-bottom">
             <h2 className="text-blue fs-600 letter-spacing-3 margin-top-bottom padding-top-bottom padding-inline--2 uppercase">About Me</h2>
           </header>
-          <p className="text-white fs-400 letter-spacing-3 padding-inline--2">I was born and raised in New York. I was in sales for most of my professional work experience. I have always wanted to build something software related so during the pandemic, I decided to start my programming journey. It has been a journey and I am grateful for every resource I have used to get me to the point where I am at now.</p>   
+          <p className="text-light-grey fs-400 letter-spacing-3 padding-inline--2">I was born and raised in New York. I was in sales for most of my professional work experience. I have always wanted to build something software related so during the pandemic, I decided to start my programming journey. It has been a journey and I am grateful for every resource I have used to get me to the point where I am at now.</p>   
         </article>
 
         <article className="flow margin-top-bottom padding-top-bottom--big">
@@ -52,7 +52,7 @@ const IndexPage = ( { data }) => {
           </header>
           <ImgGallery>
             {sanityData.map(element => {
-              const image = getImage(element.image.asset.gatsbyImage);
+              const image = getImage(element.image.asset.gatsbyImageData);
               return <GatsbyImage image={image} key={element.name} alt={element.name} className="img" />
             })}
           </ImgGallery>
@@ -64,7 +64,7 @@ const IndexPage = ( { data }) => {
           </header>
             <IconGrid className="padding-inline">
               <div className="card padding-top-bottom padding-inline">
-                <FaGitAlt className="icons text-purple" />
+                <FaGitAlt className="icons-1 text-purple" />
                 <span className="d-block text-light-grey fs-400 letter-spacing-2">Git</span>
               </div>
               <div className="card padding-top-bottom ">
@@ -177,6 +177,7 @@ const IndexPage = ( { data }) => {
               )
             })}
             <div className="flex">
+              <span className="sr-only">Link to Projects Page</span>
               <Link to="/projects" aria-label="projects link" className="link-btn uppercase text-white fs-400 padding-inline">More Projects</Link>
             </div>
         </article>
@@ -186,24 +187,30 @@ const IndexPage = ( { data }) => {
 
 export const data = graphql`
   {
-    myPicture: file(name: {eq: "myPicture"}) {
-      childImageSharp {
+    sanityMe {
+    name
+    image {
+      asset {
         gatsbyImageData(
+          width: 800
           placeholder: BLURRED
           layout: CONSTRAINED
-          quality: 100
-          breakpoints: [360,768,1024,1280]
-          width: 800
-          
+          fit: FILL
         )
       }
     }
+  }
     allSanityHobbies {
     nodes {
       name
       image {
         asset {
-          gatsbyImage(aspectRatio: 1.5, placeholder: TRACED_SVG, quality: 60, width: 800)
+          gatsbyImageData(
+            aspectRatio: 1.5 
+            placeholder: BLURRED 
+            width: 800
+            layout: CONSTRAINED
+            )
         }
       }
     }

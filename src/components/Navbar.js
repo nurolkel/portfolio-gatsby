@@ -71,6 +71,7 @@ const Navbar = () =>  {
         if (window.innerWidth > 1024) {
             setOpen(false);
         }
+
     },[open])
 
     return (

@@ -9,13 +9,14 @@ export const GridWrapper = styled("main")`
     grid-template-columns: 1fr;
     align-items: center;
 
-    box-sizing: border-box;
+   
     justify-content: center;
     padding-top: 2rem;
     gap:var(--gap, 1rem);
 
     .gatsby-image-wrapper {
         object-position:center;
+        width: 100%;
     }
 
     
@@ -35,7 +36,8 @@ export const GridWrapper = styled("main")`
        .gatsby-image-wrapper {
            grid-column: 3 / span 2;
            justify-self: end;
-          
+            border-radius: 15px;
+            width: 100%;
        }
 
    }
@@ -203,6 +205,7 @@ export const PageContainer = styled('main')`
     height: 100vh;
     padding: 2rem 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
@@ -213,3 +216,33 @@ export const FooterContainer = styled("footer")`
     align-items: center;
     padding: 1rem;
 `
+
+
+export const BreadcrumbsWrapper = styled("div")`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+`
+
+export const BreadContent = styled("div")`
+    display: flex;
+    width: 100%; 
+    padding: 0 20px;
+     
+    a {
+        &:hover,
+        &:focus {
+            border-bottom: 1px solid hsl( var(--clr-light-grey));
+        }
+    }
+
+    span {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        
+
+        
+    }
+`;

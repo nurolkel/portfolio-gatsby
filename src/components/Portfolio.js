@@ -65,11 +65,11 @@ const PortfolioComponent = ({ title, text, image, github, url, description, skil
         <WrapperContainer key={title} className="padding-top-bottom">
             <div className="flex-item--portfolio">
                 <Link to={`/${slug}`}><GatsbyImage image={image} alt={title} className="img--portfolio"/></Link>
-                <div>
-                    <h3 className="letter-spacing-3 text-blue fs-700 uppercase padding-top-bottom padding-inline">{title}<span className="d-block text-white letter-spacing-2 padding-top-bottom fs-400">{description}</span></h3>
+                <div className="padding-inline">
+                    <h3 className="letter-spacing-3 text-blue fs-700 uppercase padding-top-bottom">{title}<span className="d-block text-white letter-spacing-2 padding-top-bottom fs-400">{description}</span></h3>
                     <div className="padding-inline flex padding-top-bottom">
-                        <a href={github} target="_blank"><BsGithub className="icons text-purple"/></a>
-                        <a href={url} target="_blank"><SiNetlify className="icons text-purple" /></a>
+                        <a href={github} target="_blank" rel="noopener"><span className="sr-only">Github Link</span><BsGithub className="icons text-purple"/></a>
+                        <a href={url} target="_blank" rel="noopener"><span className="sr-only">Netlify Link</span><SiNetlify className="icons text-purple" /></a>
                     </div>
                 </div>
             </div>
