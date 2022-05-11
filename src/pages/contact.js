@@ -6,6 +6,7 @@ import MessageComponent from "../components/Message";
 import { ContactContainer } from "../components/Container";
 import ReachMe from "../components/ReachMe";
 import Seo from '../components/Seo'
+import Layout from "../components/Layout";
 
 const ContactPage = () => {
     
@@ -35,7 +36,7 @@ const ContactPage = () => {
     }
 
     return (
-        <React.Fragment>
+        <Layout>
         <Seo title="Contact Me" />
         <ContactContainer>
             <div>
@@ -76,7 +77,7 @@ const ContactPage = () => {
                 <button role="submit">Submit</button>
             </form>
         </ContactContainer>
-        </React.Fragment>
+        </Layout>
     )
 
 }

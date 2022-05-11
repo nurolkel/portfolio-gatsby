@@ -3,12 +3,13 @@ import { Link, graphql } from 'gatsby'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { ProjectsGrid } from "../components/Container";
 import Seo from '../components/Seo'
+import Layout from "../components/Layout";
 
 
 const ProjectPage = ({ data }) => {
 
     return (
-        <React.Fragment>
+        <Layout>
             <Seo title="Projects" />
             <h1 className="text-blue text-center uppercase letter-spacing-2 padding-top-bottom fs-650">Projects Page</h1>
             <ProjectsGrid>
@@ -24,7 +25,7 @@ const ProjectPage = ({ data }) => {
                     )
                 })}
             </ProjectsGrid>
-        </React.Fragment>
+        </Layout>
     )
 }
 
