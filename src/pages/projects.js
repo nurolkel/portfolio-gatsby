@@ -2,14 +2,14 @@ import React from "react";
 import { Link, graphql } from 'gatsby'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { ProjectsGrid } from "../components/Container";
-import SEO from '../components/SEO'
+import Seo from '../components/Seo'
 
 
 const ProjectPage = ({ data }) => {
 
     return (
-        <>
-            <SEO title="Projects" />
+        <React.Fragment>
+            <Seo title="Projects" />
             <h1 className="text-blue text-center uppercase letter-spacing-2 padding-top-bottom fs-650">Projects Page</h1>
             <ProjectsGrid>
                 {data.allSanityPortfolio.nodes.map(element => {
@@ -24,7 +24,7 @@ const ProjectPage = ({ data }) => {
                     )
                 })}
             </ProjectsGrid>
-        </>
+        </React.Fragment>
     )
 }
 

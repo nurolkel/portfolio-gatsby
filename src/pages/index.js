@@ -5,7 +5,7 @@ import { graphql, Link  } from "gatsby"
 import { GridWrapper, ImgGallery, IconGrid } from "../components/Container"
 import PortfolioComponent from "../components/Portfolio"
 import ReachMe from "../components/ReachMe"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 // Import Icons
 import { BsGithub , BsFacebook } from 'react-icons/bs';
 import { FaGitAlt, FaHtml5, FaCss3Alt, FaWordpress, FaWix, FaReact, FaNodeJs } from 'react-icons/fa';
@@ -24,8 +24,8 @@ const IndexPage = ( { data }) => {
     const sanityData = [...data.allSanityHobbies.nodes];
     
     return (
-      <>
-        <SEO title="Home" />
+      <React.Fragment>
+        <Seo title="Home" />
         <GridWrapper className="padding-main flow flow--space-medium">
           <div className="grid-item flow padding-inline--small">
             <h1 className="text-center letter-spacing-3 text-blue fs-700 uppercase">Hi, I'm Kelvin<span className="d-block text-white fs-500 margin-top-bottom">Frontend Web Developer</span></h1>
@@ -181,7 +181,7 @@ const IndexPage = ( { data }) => {
               <Link to="/projects" aria-label="projects link" className="link-btn uppercase text-white fs-400 padding-inline">More Projects</Link>
             </div>
         </article>
-      </>
+      </React.Fragment>
     )
 }
 

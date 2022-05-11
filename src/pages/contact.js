@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import MessageComponent from "../components/Message";
 import { ContactContainer } from "../components/Container";
 import ReachMe from "../components/ReachMe";
-import SEO from '../components/SEO'
+import Seo from '../components/Seo'
 
 const ContactPage = () => {
     
@@ -35,8 +35,8 @@ const ContactPage = () => {
     }
 
     return (
-        <>
-        <SEO title="Contact Me" />
+        <React.Fragment>
+        <Seo title="Contact Me" />
         <ContactContainer>
             <div>
                 <h1 className="text-blue text-center padding-top-bottom">Contact Page</h1>
@@ -76,7 +76,7 @@ const ContactPage = () => {
                 <button role="submit">Submit</button>
             </form>
         </ContactContainer>
-        </>
+        </React.Fragment>
     )
 
 }

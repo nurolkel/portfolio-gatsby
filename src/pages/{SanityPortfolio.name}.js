@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import PortfolioComponent from "../components/Portfolio";
 import { getImage } from "gatsby-plugin-image";
-import SEO from '../components/SEO'
+import Seo from '../components/Seo'
 import BreadCrumb from "../components/Breadcrumbs";
 
 const PortfolioItems = ({ data }) => {
@@ -10,11 +10,11 @@ const PortfolioItems = ({ data }) => {
 
 
     return (
-        <>
-        <SEO title={data.sanityPortfolio.name} />
-        <BreadCrumb page={data.sanityPortfolio.name} />
-        <PortfolioComponent title={data.sanityPortfolio.name} slug={data.sanityPortfolio.slug.current} skill={data.sanityPortfolio.skill} text={data.sanityPortfolio.text} description={data.sanityPortfolio.description} github={data.sanityPortfolio.github} url={data.sanityPortfolio.url} image={imageSrc}/>
-        </>
+        <React.Fragment>
+            <Seo title={data.sanityPortfolio.name} />
+            <BreadCrumb page={data.sanityPortfolio.name} />
+            <PortfolioComponent title={data.sanityPortfolio.name} slug={data.sanityPortfolio.slug.current} skill={data.sanityPortfolio.skill} text={data.sanityPortfolio.text} description={data.sanityPortfolio.description} github={data.sanityPortfolio.github} url={data.sanityPortfolio.url} image={imageSrc}/>
+        </React.Fragment>
     )
 }
 
