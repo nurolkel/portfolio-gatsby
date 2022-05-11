@@ -19,6 +19,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-emotion`,
       options: {
