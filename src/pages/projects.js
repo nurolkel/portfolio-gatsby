@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link, graphql } from 'gatsby'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { ProjectsGrid } from "../components/Container";

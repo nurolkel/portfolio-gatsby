@@ -1,11 +1,11 @@
-import React from "react"
+
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
-import { graphql, Link  } from "gatsby"
+import { graphql, Link  } from "gatsby";
 // Import Components
-import { GridWrapper, ImgGallery, IconGrid } from "../components/Container"
-import PortfolioComponent from "../components/Portfolio"
-import ReachMe from "../components/ReachMe"
-import Seo from "../components/Seo"
+import { GridWrapper, ImgGallery, IconGrid } from "../components/Container";
+import PortfolioComponent from "../components/Portfolio";
+import ReachMe from "../components/ReachMe";
+import Seo from "../components/Seo";
 // Import Icons
 import { BsGithub , BsFacebook } from 'react-icons/bs';
 import { FaGitAlt, FaHtml5, FaCss3Alt, FaWordpress, FaWix, FaReact, FaNodeJs } from 'react-icons/fa';
