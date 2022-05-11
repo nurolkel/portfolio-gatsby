@@ -1,15 +1,14 @@
 import React from "react"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import GlobalStyle from "../styles/GlobalStyles";
+
 
 const Layout = ({ children }) => (
-    <>
-      <GlobalStyle />
+    <React.Fragment>
       <Navbar />
         {children}
       <Footer />
-    </>
+    </React.Fragment>
 );
 
 

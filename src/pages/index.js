@@ -11,7 +11,6 @@ import { BsGithub , BsFacebook } from 'react-icons/bs';
 import { FaGitAlt, FaHtml5, FaCss3Alt, FaWordpress, FaWix, FaReact, FaNodeJs } from 'react-icons/fa';
 import { SiJavascript, SiTailwindcss, SiStyledcomponents, SiGatsby, SiNextdotjs, SiNetlify, SiVercel, SiFirebase, SiContentful, SiWebpack, SiMongodb, SiPostgresql, SiGraphql } from 'react-icons/si';
 import { BsBootstrapFill } from 'react-icons/bs'
-import Layout from "../components/Layout"
 
 
 
@@ -25,7 +24,7 @@ const IndexPage = ( { data }) => {
     const sanityData = [...data.allSanityHobbies.nodes];
     
     return (
-      <Layout>
+      <React.Fragment>
         <Seo title="Home" />
         <GridWrapper className="padding-main flow flow--space-medium">
           <div className="grid-item flow padding-inline--small">
@@ -182,7 +181,7 @@ const IndexPage = ( { data }) => {
               <Link to="/projects" aria-label="projects link" className="link-btn uppercase text-white fs-400 padding-inline">More Projects</Link>
             </div>
         </article>
-      </Layout>
+      </React.Fragment>
     )
 }
 
