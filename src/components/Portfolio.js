@@ -18,8 +18,12 @@ const WrapperContainer = styled('div')`
 
         .img--portfolio {
             width: 100%;
-            object-fit: fill;
+            height: auto;
+            object-fit: scale-down;
+            
         }
+        
+        
         
         @media ${breakpoints.desktop} {
             flex-direction: row;
@@ -75,7 +79,7 @@ const PortfolioComponent = ({ title, text, image, github, url, description, skil
             </div>
             <div className="skill-container padding-top-bottom margin-top-bottom ">
                 {skill.map(element => (
-                    <span className="text-light-grey fs-300 bg-dark-blue  letter-spacing-3">{element.name}</span>
+                    <span className="text-light-grey fs-300 bg-dark-blue letter-spacing-3">{element.name}</span>
                 ))}
             </div>
             <p className="letter-spacing-2 fs-400 text-light-grey padding-top-bottom padding-inline">{text}</p>

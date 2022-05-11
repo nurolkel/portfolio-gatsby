@@ -53,7 +53,7 @@ const IndexPage = ( { data }) => {
           <ImgGallery>
             {sanityData.map(element => {
               const image = getImage(element.image.asset.gatsbyImageData);
-              return <GatsbyImage image={image} key={element.name} alt={element.name} className="img" />
+              return <GatsbyImage image={image} key={element.name} alt={element.name} className="img" />    
             })}
           </ImgGallery>
         </article>

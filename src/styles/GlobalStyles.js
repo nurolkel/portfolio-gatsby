@@ -355,7 +355,7 @@ const GlobalStyle = () => (
 
             .img {
                 width: 100%;
-                
+                height: auto;
                 
                 @media ${breakpoints.desktop} {
                     width: 100%;

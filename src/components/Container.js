@@ -80,6 +80,10 @@ export const ImgGallery = styled("div")`
         grid-template-columns:  minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
         gap: 2rem;
         justify-items: center;
+
+        
+        
+        
         .gatsby-image-wrapper:nth-of-type(odd) {
             grid-column: 2;
         }
@@ -105,7 +109,6 @@ export const ProjectsGrid = styled('div')`
 
         .projects-img {
             width: 100%;
-            object-fit: fill;
         }
 
         .projects-grid {
@@ -125,13 +128,9 @@ export const ProjectsGrid = styled('div')`
         grid-template-columns: repeat(2, 1fr);
         
         a {
-            
-
             .projects-img {
                 height: 500px;
                 width: 100%;
-                object-fit: fill;
-                object-position: top;
             }
         }
     }
