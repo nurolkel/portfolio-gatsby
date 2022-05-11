@@ -20,8 +20,7 @@ const SEO = ({ description, lang, meta, title })  => {
   )
 
   const metaDescription = site.siteMetadata.description || description 
-  const defaultTitle = site.siteMetadata.title
-  const image = site.siteMetadata.image;
+  const defaultTitle = site.siteMetadata.title;
   const keywords = site.siteMetadata.keywords;
 
   return (
@@ -52,16 +51,12 @@ const SEO = ({ description, lang, meta, title })  => {
           property: `og:type`,
           content: `website`,
         },
-        {
-          property: `og:image`,
-          content: image,
-        },
       ].concat(meta)}
     />
   )
 }
 
-Seo.defaultProps = {
+SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: `This is my portfolio website where you can see my github and projects I've worked on`,
