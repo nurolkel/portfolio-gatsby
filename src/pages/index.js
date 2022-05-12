@@ -1,4 +1,4 @@
-
+import React from "react";
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { graphql, Link  } from "gatsby";
 // Import Components

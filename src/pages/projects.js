@@ -1,8 +1,8 @@
-
-import { Link, graphql } from 'gatsby'
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { ProjectsGrid } from "../components/Container";
-import Seo from '../components/Seo'
+import Seo from '../components/Seo';
 
 
 const ProjectPage = ({ data }) => {
